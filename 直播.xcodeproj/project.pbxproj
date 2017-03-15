@@ -1,0 +1,482 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		1E961E25CA21A48FC28E9AC5 /* libPods-直播.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FDE4FF42CBFC51DB686F28D5 /* libPods-直播.a */; };
+		E3374F901E5D2BED00C4EF7C /* GPUImageBeautyFilter.m in Sources */ = {isa = PBXBuildFile; fileRef = E3374F8F1E5D2BED00C4EF7C /* GPUImageBeautyFilter.m */; };
+		E3624EC51E6FDA4700178A3B /* HFPlayerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E3624EC41E6FDA4700178A3B /* HFPlayerViewController.m */; };
+		E36CEFFA1E5A916700917032 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = E36CEFF91E5A916700917032 /* main.m */; };
+		E36CEFFD1E5A916700917032 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = E36CEFFC1E5A916700917032 /* AppDelegate.m */; };
+		E36CF0001E5A916700917032 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E36CEFFF1E5A916700917032 /* ViewController.m */; };
+		E36CF0051E5A916700917032 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E36CF0041E5A916700917032 /* Assets.xcassets */; };
+		E36CF0081E5A916700917032 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E36CF0061E5A916700917032 /* LaunchScreen.storyboard */; };
+		E36CF01B1E5A945E00917032 /* HFCaputureViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E36CF01A1E5A945E00917032 /* HFCaputureViewController.m */; };
+		E3A278A11E5C163500D0A76E /* HFBeautyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E3A278A01E5C163500D0A76E /* HFBeautyViewController.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		62375065BD78223D1A5B6D03 /* Pods-直播.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-直播.release.xcconfig"; path = "Pods/Target Support Files/Pods-直播/Pods-直播.release.xcconfig"; sourceTree = "<group>"; };
+		D07C1B8BBC0AFE00207C9DD6 /* Pods-直播.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-直播.debug.xcconfig"; path = "Pods/Target Support Files/Pods-直播/Pods-直播.debug.xcconfig"; sourceTree = "<group>"; };
+		E3374F8E1E5D2BED00C4EF7C /* GPUImageBeautyFilter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GPUImageBeautyFilter.h; sourceTree = "<group>"; };
+		E3374F8F1E5D2BED00C4EF7C /* GPUImageBeautyFilter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GPUImageBeautyFilter.m; sourceTree = "<group>"; };
+		E3624EC31E6FDA4700178A3B /* HFPlayerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HFPlayerViewController.h; path = "播放/HFPlayerViewController.h"; sourceTree = "<group>"; };
+		E3624EC41E6FDA4700178A3B /* HFPlayerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HFPlayerViewController.m; path = "播放/HFPlayerViewController.m"; sourceTree = "<group>"; };
+		E36CEFF51E5A916700917032 /* 直播.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "直播.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		E36CEFF91E5A916700917032 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		E36CEFFB1E5A916700917032 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		E36CEFFC1E5A916700917032 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		E36CEFFE1E5A916700917032 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		E36CEFFF1E5A916700917032 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		E36CF0041E5A916700917032 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		E36CF0071E5A916700917032 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		E36CF0091E5A916700917032 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E36CF0191E5A945E00917032 /* HFCaputureViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HFCaputureViewController.h; sourceTree = "<group>"; };
+		E36CF01A1E5A945E00917032 /* HFCaputureViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HFCaputureViewController.m; sourceTree = "<group>"; };
+		E3A278991E5C03C600D0A76E /* IJKMediaFramework.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = IJKMediaFramework.framework; path = "直播/Classes/IJKMediaFramework.framework"; sourceTree = "<group>"; };
+		E3A2789F1E5C163500D0A76E /* HFBeautyViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HFBeautyViewController.h; sourceTree = "<group>"; };
+		E3A278A01E5C163500D0A76E /* HFBeautyViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HFBeautyViewController.m; sourceTree = "<group>"; };
+		FDE4FF42CBFC51DB686F28D5 /* libPods-直播.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-直播.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		E36CEFF21E5A916700917032 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1E961E25CA21A48FC28E9AC5 /* libPods-直播.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		873CE624AD735708559B447E /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				D07C1B8BBC0AFE00207C9DD6 /* Pods-直播.debug.xcconfig */,
+				62375065BD78223D1A5B6D03 /* Pods-直播.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		E3374F8D1E5D2BBB00C4EF7C /* View */ = {
+			isa = PBXGroup;
+			children = (
+				E3374F8E1E5D2BED00C4EF7C /* GPUImageBeautyFilter.h */,
+				E3374F8F1E5D2BED00C4EF7C /* GPUImageBeautyFilter.m */,
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
+		E3624EC11E6FCE1E00178A3B /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				E3624EC31E6FDA4700178A3B /* HFPlayerViewController.h */,
+				E3624EC41E6FDA4700178A3B /* HFPlayerViewController.m */,
+			);
+			name = Controller;
+			path = ..;
+			sourceTree = "<group>";
+		};
+		E3624EC21E6FCE4100178A3B /* 播放 */ = {
+			isa = PBXGroup;
+			children = (
+				E3624EC11E6FCE1E00178A3B /* Controller */,
+			);
+			path = "播放";
+			sourceTree = "<group>";
+		};
+		E36CEFEC1E5A916600917032 = {
+			isa = PBXGroup;
+			children = (
+				E36CEFF71E5A916700917032 /* 直播 */,
+				E36CEFF61E5A916700917032 /* Products */,
+				873CE624AD735708559B447E /* Pods */,
+				E81B6D805DCFE57328411847 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		E36CEFF61E5A916700917032 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				E36CEFF51E5A916700917032 /* 直播.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		E36CEFF71E5A916700917032 /* 直播 */ = {
+			isa = PBXGroup;
+			children = (
+				E36CF0151E5A943D00917032 /* Classes */,
+				E36CEFFB1E5A916700917032 /* AppDelegate.h */,
+				E36CEFFC1E5A916700917032 /* AppDelegate.m */,
+				E36CEFFE1E5A916700917032 /* ViewController.h */,
+				E36CEFFF1E5A916700917032 /* ViewController.m */,
+				E36CF0041E5A916700917032 /* Assets.xcassets */,
+				E36CF0061E5A916700917032 /* LaunchScreen.storyboard */,
+				E36CF0091E5A916700917032 /* Info.plist */,
+				E36CEFF81E5A916700917032 /* Supporting Files */,
+			);
+			path = "直播";
+			sourceTree = "<group>";
+		};
+		E36CEFF81E5A916700917032 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				E36CEFF91E5A916700917032 /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		E36CF0151E5A943D00917032 /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				E3624EC21E6FCE4100178A3B /* 播放 */,
+				E3A2789D1E5C15FF00D0A76E /* 美颜 */,
+				E36CF0161E5A943D00917032 /* 采集 */,
+			);
+			path = Classes;
+			sourceTree = "<group>";
+		};
+		E36CF0161E5A943D00917032 /* 采集 */ = {
+			isa = PBXGroup;
+			children = (
+				E36CF0171E5A943D00917032 /* Caputure */,
+			);
+			path = "采集";
+			sourceTree = "<group>";
+		};
+		E36CF0171E5A943D00917032 /* Caputure */ = {
+			isa = PBXGroup;
+			children = (
+				E36CF0191E5A945E00917032 /* HFCaputureViewController.h */,
+				E36CF01A1E5A945E00917032 /* HFCaputureViewController.m */,
+			);
+			path = Caputure;
+			sourceTree = "<group>";
+		};
+		E3A2789D1E5C15FF00D0A76E /* 美颜 */ = {
+			isa = PBXGroup;
+			children = (
+				E3A2789E1E5C160400D0A76E /* Controller */,
+				E3374F8D1E5D2BBB00C4EF7C /* View */,
+			);
+			path = "美颜";
+			sourceTree = "<group>";
+		};
+		E3A2789E1E5C160400D0A76E /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				E3A2789F1E5C163500D0A76E /* HFBeautyViewController.h */,
+				E3A278A01E5C163500D0A76E /* HFBeautyViewController.m */,
+			);
+			name = Controller;
+			sourceTree = "<group>";
+		};
+		E81B6D805DCFE57328411847 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				E3A278991E5C03C600D0A76E /* IJKMediaFramework.framework */,
+				FDE4FF42CBFC51DB686F28D5 /* libPods-直播.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		E36CEFF41E5A916700917032 /* 直播 */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E36CF00C1E5A916700917032 /* Build configuration list for PBXNativeTarget "直播" */;
+			buildPhases = (
+				67070E7AE0B435B6E7545621 /* [CP] Check Pods Manifest.lock */,
+				E36CEFF11E5A916700917032 /* Sources */,
+				E36CEFF21E5A916700917032 /* Frameworks */,
+				E36CEFF31E5A916700917032 /* Resources */,
+				92C6EC4E5DF6C034069E6D51 /* [CP] Embed Pods Frameworks */,
+				C62F920482A38284827E4CA0 /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "直播";
+			productName = "直播";
+			productReference = E36CEFF51E5A916700917032 /* 直播.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		E36CEFED1E5A916700917032 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0820;
+				ORGANIZATIONNAME = taoyitech;
+				TargetAttributes = {
+					E36CEFF41E5A916700917032 = {
+						CreatedOnToolsVersion = 8.2.1;
+						DevelopmentTeam = DGAKQZRMU8;
+						ProvisioningStyle = Automatic;
+					};
+				};
+			};
+			buildConfigurationList = E36CEFF01E5A916700917032 /* Build configuration list for PBXProject "直播" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = E36CEFEC1E5A916600917032;
+			productRefGroup = E36CEFF61E5A916700917032 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				E36CEFF41E5A916700917032 /* 直播 */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		E36CEFF31E5A916700917032 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E36CF0081E5A916700917032 /* LaunchScreen.storyboard in Resources */,
+				E36CF0051E5A916700917032 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		67070E7AE0B435B6E7545621 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		92C6EC4E5DF6C034069E6D51 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-直播/Pods-直播-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		C62F920482A38284827E4CA0 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-直播/Pods-直播-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		E36CEFF11E5A916700917032 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E36CF0001E5A916700917032 /* ViewController.m in Sources */,
+				E36CEFFD1E5A916700917032 /* AppDelegate.m in Sources */,
+				E36CEFFA1E5A916700917032 /* main.m in Sources */,
+				E3A278A11E5C163500D0A76E /* HFBeautyViewController.m in Sources */,
+				E3624EC51E6FDA4700178A3B /* HFPlayerViewController.m in Sources */,
+				E3374F901E5D2BED00C4EF7C /* GPUImageBeautyFilter.m in Sources */,
+				E36CF01B1E5A945E00917032 /* HFCaputureViewController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		E36CF0061E5A916700917032 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				E36CF0071E5A916700917032 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		E36CF00A1E5A916700917032 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		E36CF00B1E5A916700917032 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		E36CF00D1E5A916700917032 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = D07C1B8BBC0AFE00207C9DD6 /* Pods-直播.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = DGAKQZRMU8;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/直播/Classes",
+				);
+				INFOPLIST_FILE = "直播/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.taoyitech.--";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		E36CF00E1E5A916700917032 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 62375065BD78223D1A5B6D03 /* Pods-直播.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = DGAKQZRMU8;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/直播/Classes",
+				);
+				INFOPLIST_FILE = "直播/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.taoyitech.--";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		E36CEFF01E5A916700917032 /* Build configuration list for PBXProject "直播" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E36CF00A1E5A916700917032 /* Debug */,
+				E36CF00B1E5A916700917032 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		E36CF00C1E5A916700917032 /* Build configuration list for PBXNativeTarget "直播" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E36CF00D1E5A916700917032 /* Debug */,
+				E36CF00E1E5A916700917032 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = E36CEFED1E5A916700917032 /* Project object */;
+}
