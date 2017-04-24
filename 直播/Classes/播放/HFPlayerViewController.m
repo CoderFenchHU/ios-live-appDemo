@@ -8,6 +8,7 @@
 
 #import "HFPlayerViewController.h"
 #import <AVFoundation/AVFoundation.h>
+#import "H264Decoder-Soft.h"
 
 @interface HFPlayerViewController ()
 @property (strong, nonatomic) AVPlayer *player;
@@ -19,6 +20,9 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    H264Decoder_Soft *decoder = [[H264Decoder_Soft alloc] init];
+    [decoder decode];
+    
     
     self.title = @"播放";
     self.view.backgroundColor = [UIColor whiteColor];

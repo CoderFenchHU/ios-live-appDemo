@@ -14,6 +14,7 @@ PODS:
   - AFNetworking/Serialization (3.1.0)
   - AFNetworking/UIKit (3.1.0):
     - AFNetworking/NSURLSession
+  - CocoaAsyncSocket (7.6.0)
   - GPUImage (0.1.7)
   - MJExtension (3.0.13)
   - SDWebImage (3.7.6):
@@ -25,6 +26,7 @@ PODS:
 
 DEPENDENCIES:
   - AFNetworking (~> 3.1.0)
+  - CocoaAsyncSocket
   - GPUImage (~> 0.1.7)
   - MJExtension (~> 3.0.13)
   - SDWebImage (~> 3.7.4)
@@ -32,11 +34,12 @@ DEPENDENCIES:
 
 SPEC CHECKSUMS:
   AFNetworking: 5e0e199f73d8626b11e79750991f5d173d1f8b67
+  CocoaAsyncSocket: b9d5589f07baf9de8f34cc25abd4fcba28f13805
   GPUImage: 733a5f0fab92df9de1c37ba9df520a833ccb406d
   MJExtension: 5932755f451458eefa24239358817f8d291240c7
   SDWebImage: c325cf02c30337336b95beff20a13df489ec0ec9
   YYKit: 843d1b26e20b82c695790c9a89907eaa1e99907f
 
-PODFILE CHECKSUM: 0e2729ff91ebca7fced543567bde46526eea0694
+PODFILE CHECKSUM: 79d482231715a0e2866dee50632d8ad2b94e1acd
 
 COCOAPODS: 1.2.0.rc.1
