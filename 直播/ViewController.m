@@ -11,6 +11,8 @@
 #import "HFBeautyViewController.h"
 #import "HFPlayerViewController.h"
 
+#import "HFSocket.h"
+
 @interface ViewController ()
 
 
@@ -25,6 +27,15 @@
     self.tableView.delegate = self;
     self.tableView.rowHeight = 64;
     self.title = @"主页";
+    
+//    HFSocket *socket = [[HFSocket alloc] init];
+//    if ([socket connectToHost:@"10.0.0.8" andPort:6666]) {
+//        NSLog(@"链接到yzh的服务器");
+//
+//    }else {
+//        NSLog(@"连接不到yzh的服务器");
+//    }
+    
 }
 
 
@@ -41,7 +52,7 @@
 }
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 4;
+    return 5;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -63,6 +74,8 @@
         case 3:
             cell.textLabel.text = @"采集播放";
             break;
+        case 4:
+            cell.textLabel.text = @"解码播放";
         default:
             break;
     }
@@ -89,6 +102,10 @@
             [self.navigationController pushViewController:playVc animated:YES];
         }
             break;
+        case 4:
+        {
+            
+        }
         default:
             break;
     }

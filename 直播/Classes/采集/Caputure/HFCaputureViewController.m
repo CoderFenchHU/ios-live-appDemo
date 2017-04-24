@@ -9,10 +9,12 @@
 #import "HFCaputureViewController.h"
 #import <AVFoundation/AVFoundation.h>
 #import <AFNetworking.h>
+#import "H264Encoder-Soft.h"
+#import "EncodeH264.h"
 //#import <IJKMediaFramework/IJKMediaFramework.h>
 #import <GPUImage.h>
 
-@interface HFCaputureViewController () <AVCaptureVideoDataOutputSampleBufferDelegate, AVCaptureAudioDataOutputSampleBufferDelegate>
+@interface HFCaputureViewController () <AVCaptureVideoDataOutputSampleBufferDelegate>
 {
     dispatch_queue_t _queue;
     NSString *_filePath;
@@ -25,6 +27,8 @@
     CMTime _timeOffset;
     CMTime _videoTimeStamp;
     CMTime _audioTimeStamp;
+    
+    BOOL useSoftEncoder;
 }
 
 @property (strong, nonatomic) AVCaptureDeviceInput *curVideoDeviceInput;
@@ -37,10 +41,28 @@
 @property (strong, nonatomic) AVAssetWriterInput *audioAssetInput;
 @property (strong, nonatomic) AVAssetWriterInput *videoAssetInput;
 
+@property (strong, nonatomic) H264Encoder_Soft *encoder_soft;
+@property (strong, nonatomic) EncodeH264 *encoder;
+
 @end
 
 @implementation HFCaputureViewController
 
+-  (H264Encoder_Soft *)encoder_soft
+{
+    if (!_encoder_soft) {
+        _encoder_soft = [[H264Encoder_Soft alloc] init];
+    }
+    return _encoder_soft;
+}
+
+- (EncodeH264 *)encoder{
+    if (!_encoder) {
+        _encoder = [[EncodeH264 alloc] init];
+        [_encoder openfile];
+    }
+    return _encoder;
+}
 - (UIImageView *)focImageView
 {
     if (!_focImageView) {
@@ -55,10 +77,10 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     self.title = @"音视频采集";
-    _queue = dispatch_queue_create("FENCH_QUEUE", DISPATCH_QUEUE_SERIAL);
     
+    //useSoftEncoder = YES;
     [self setupCapture];
-    [self initAssetWrite];
+   // [self initAssetWrite];
     UIBarButtonItem *item = [[UIBarButtonItem alloc] initWithTitle:@"切换镜头" style:UIBarButtonItemStylePlain target:self action:@selector(changeCapture)];
     [self.navigationItem setRightBarButtonItem:item];
     
@@ -68,6 +90,8 @@
     _isRecording = YES;
 }
 
+
+
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
@@ -76,14 +100,20 @@
 // 初始化音视频采集
 - (void)setupCapture
 {
+    if (useSoftEncoder) {
+        [self.encoder_soft prepareEncodeWithWidth:720 height:1280];
+    } else {
+        [self.encoder createEncodeSession:720 height:1280 fps:30 bite:1280*1000];
+    }
+    
     // 创建捕捉会话
     AVCaptureSession *session = [[AVCaptureSession alloc] init];
-    _session = session;
-    _session.sessionPreset = AVCaptureSessionPresetMedium;
+    session.sessionPreset = AVCaptureSessionPreset1280x720;
+    self.session = session;
     
     
     // 获取摄像头
-    AVCaptureDevice *VideoDev = [self getDeviceWithPosision:AVCaptureDevicePositionFront];
+    AVCaptureDevice *VideoDev = [self getDeviceWithPosision:AVCaptureDevicePositionBack];
     
    
     if (VideoDev == nil) {
@@ -99,28 +129,28 @@
     _curVideoDeviceInput = videoInput;
     
     // 获取声音设备
-    AVCaptureDevice *audioDev = [AVCaptureDevice defaultDeviceWithMediaType:AVMediaTypeAudio];
+    //AVCaptureDevice *audioDev = [AVCaptureDevice defaultDeviceWithMediaType:AVMediaTypeAudio];
     
-    NSError *audioErr = nil;
-    AVCaptureDeviceInput *audioInput = [AVCaptureDeviceInput deviceInputWithDevice:audioDev error:&audioErr];
-    if (audioErr) {
-        NSLog(@"creat audio device input error!");
-        return;
-    }
+   // NSError *audioErr = nil;
+   // AVCaptureDeviceInput *audioInput = [AVCaptureDeviceInput deviceInputWithDevice:audioDev error:&audioErr];
+   // if (audioErr) {
+   //     NSLog(@"creat audio device input error!");
+   //     return;
+   // }
     
     // 添加输入流到会话
     if ([session canAddInput:videoInput]) {
         [session addInput:videoInput];
     } else NSLog(@"add video input error!");
-    if ([session canAddInput:audioInput]) {
-        [session addInput:audioInput];
-    } else NSLog(@"add audio input error");
+   // if ([session canAddInput:audioInput]) {
+   //     [session addInput:audioInput];
+   // } else NSLog(@"add audio input error");
     // 获取视频数据输出设备
     AVCaptureVideoDataOutput *videoOutput = [[AVCaptureVideoDataOutput alloc] init];
-    [videoOutput setAlwaysDiscardsLateVideoFrames:NO];
-    [videoOutput setVideoSettings:[NSDictionary dictionaryWithObject:@(kCVPixelFormatType_420YpCbCr8BiPlanarFullRange) forKey:(id)kCVPixelBufferPixelFormatTypeKey]];
-    dispatch_queue_t videoQue = dispatch_queue_create("cf.fench.video", DISPATCH_QUEUE_SERIAL);
-    [videoOutput setSampleBufferDelegate:self queue:videoQue];
+    [videoOutput setAlwaysDiscardsLateVideoFrames:YES];
+    //[videoOutput setVideoSettings:[NSDictionary dictionaryWithObject:@(kCVPixelFormatType_420YpCbCr8BiPlanarFullRange) forKey:(id)kCVPixelBufferPixelFormatTypeKey]];
+    _queue = dispatch_get_global_queue(0, 0);
+    [videoOutput setSampleBufferDelegate:self queue:_queue];
     
     // 添加输出流到会话
     if ([session canAddOutput:videoOutput]) {
@@ -128,22 +158,23 @@
     }
     
     // 获取音频数据输出设备
-    AVCaptureAudioDataOutput *audioOutput = [[AVCaptureAudioDataOutput alloc] init];
-    dispatch_queue_t  audioQue = dispatch_queue_create("cf.fench.audio", DISPATCH_QUEUE_SERIAL);
-    [audioOutput setSampleBufferDelegate:self queue:audioQue];
+   // AVCaptureAudioDataOutput *audioOutput = [[AVCaptureAudioDataOutput alloc] init];
+  //  dispatch_queue_t  audioQue = dispatch_queue_create("cf.fench.audio", DISPATCH_QUEUE_SERIAL);
+  //  [audioOutput setSampleBufferDelegate:self queue:audioQue];
     
     // 添加输出流到会话
-    if ([session canAddOutput:audioOutput]) {
-        [session addOutput:audioOutput];
-    }
+   // if ([session canAddOutput:audioOutput]) {
+       // [session addOutput:audioOutput];
+   // }
 //    AVCaptureMovieFileOutput *moveOutput = [[AVCaptureMovieFileOutput alloc] init];
    
     
     // 视频输入输出连接
     AVCaptureConnection *videoConnection = [videoOutput connectionWithMediaType:AVMediaTypeVideo];
     _videoConnection= videoConnection;
-    AVCaptureConnection *audioConnection = [audioOutput connectionWithMediaType:AVMediaTypeAudio];
-    _audioConnection = audioConnection;
+    videoConnection.videoOrientation = AVCaptureVideoOrientationPortrait;
+    //AVCaptureConnection *audioConnection = [audioOutput connectionWithMediaType:AVMediaTypeAudio];
+    //_audioConnection = audioConnection;
     
     // 添加视频预览图层
     AVCaptureVideoPreviewLayer *preLayer = [AVCaptureVideoPreviewLayer layerWithSession:session];
@@ -151,16 +182,12 @@
     [self.view.layer insertSublayer:preLayer atIndex:0];
     _preLayer = preLayer;
     
-    NSString *sessionPreset = [_session sessionPreset];
-    if ([_session canSetSessionPreset:sessionPreset]) {
-        [_session setSessionPreset:sessionPreset];
-    }
+   // NSString *sessionPreset = [_session sessionPreset];
+   // if ([_session canSetSessionPreset:sessionPreset]) {
+   //     [_session setSessionPreset:sessionPreset];
+   // }
     
-    if ([_videoConnection isVideoStabilizationSupported]) {
-        _videoConnection.preferredVideoStabilizationMode = AVCaptureVideoStabilizationModeStandard;
-        [_session commitConfiguration];
-//        [_session startRunning];po
-    }
+    [_session commitConfiguration];
     
     
     // 开启session
@@ -188,7 +215,6 @@
     
     _filePath = videoPath;
     unlink([videoPath UTF8String]);
-    NSLog(@"------------- %@", videoPath);
     NSURL *videoURL = [NSURL fileURLWithPath:videoPath];
     
 //    NSString *audioPath = [[NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES) firstObject] stringByAppendingString:@"audio.mp4"];
@@ -333,7 +359,7 @@
 
 // 切换摄像头
 - (IBAction)changeCapture{
-    
+   
     AVCaptureDevicePosition curPosision = _curVideoDeviceInput.device.position;
     AVCaptureDevicePosition tarPosision = curPosision == AVCaptureDevicePositionFront ? AVCaptureDevicePositionBack : AVCaptureDevicePositionFront;
     AVCaptureDevice *tarDevice = [self getDeviceWithPosision:tarPosision];
@@ -384,19 +410,27 @@
     _isRecording = NO;
     _readyForAudio = NO;
     _readyForVideo = NO;
+    [self.session stopRunning];
     [_videoAssetInput markAsFinished];
     [_audioAssetInput markAsFinished];
     [_assetWrite finishWritingWithCompletionHandler:^{
         NSLog(@"asset writer finish write status %ld", _assetWrite.status);
     }];
     
-    NSDictionary *outputFileAttributes = [[NSFileManager defaultManager] attributesOfItemAtPath:[NSString stringWithFormat:@"%@", _filePath] error:nil];
-    NSLog (@"file size: %llu", [outputFileAttributes fileSize]);
 }
 
 #pragma mark - delegate
 - (void)captureOutput:(AVCaptureOutput *)captureOutput didOutputSampleBuffer:(CMSampleBufferRef)sampleBuffer fromConnection:(AVCaptureConnection *)connection
 {
+    if (_isRecording) {
+        
+        if (useSoftEncoder) {
+            [self.encoder_soft encodeFrame:sampleBuffer];
+        } else {
+            [self.encoder encodeSmapleBuffer:sampleBuffer];
+        }
+    }
+    /*
     CMFormatDescriptionRef formatDescription = CMSampleBufferGetFormatDescription(sampleBuffer);
     CFRetain(formatDescription);
     CFRetain(sampleBuffer);
@@ -504,7 +538,7 @@
         CFRelease(sampleBuffer);
         CFRelease(formatDescription);
     });
-    
+ */
 }
 
 - (void)writeSampleBuffer:(CMSampleBufferRef)sampleBuffer ofType:(NSString *)mediaType

@@ -9,6 +9,11 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>CocoaAsyncSocket.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>GPUImage.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -37,22 +42,22 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>0174879017736DA5A7A140787D9149C0</key>
+		<key>00480D1920A866E491CBBD486724281E</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>032E9CFBD735B617F490ACCF1E6990AF</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>23D7DA26C40DEA0CBB49A7825C7CD4F1</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
 		<key>4F69F82C1EEBC0A05686A3B0FECD2FDB</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>5B5366F076ECD7F2164F3317DBB5C20A</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>96D0E1D1CF22B1AA585CBDDE1F70B433</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -63,6 +68,11 @@
 			<true/>
 		</dict>
 		<key>A316B54C67E947D23CECD230FA5BFAEF</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>C51B61B4A839C54399BF4F52C27C4092</key>
 		<dict>
 			<key>primary</key>
 			<true/>

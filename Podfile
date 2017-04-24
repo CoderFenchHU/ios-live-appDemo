@@ -9,4 +9,5 @@ target '直播' do
   pod 'MJExtension', '~> 3.0.13'  # Pods for 直播
   pod 'GPUImage', '~> 0.1.7'
   pod 'YYKit'
+  pod 'CocoaAsyncSocket'  
 end
